@@ -1108,21 +1108,7 @@ margin-left: 70px;
       </div>
     </div>
   </body>
-  
-  <script>
-    const dataAtual = new Date();
-	const hoje = dataAtual.getDate();
-	
-    var tabidhoje = "nav"+"-"+hoje;
-    
-	var tab = document.getElementById(tabidhoje);
-  	tab.classList.add("active");
-    
-    var cardhoje = document.getElementById(hoje.toString());
-    cardhoje.classList.add("show");
-    cardhoje.classList.add("active");
-    
-    </script>
+
   
   <script
     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -1144,21 +1130,33 @@ margin-left: 70px;
 
   <script type="text/javascript">
 
+  const dataAtual = new Date();
+	const hoje = dataAtual.getDate();
+	
+  var tabidhoje = "nav"+"-"+hoje;
+  
+  var tab = document.getElementById(tabidhoje);
+  	tab.classList.add("active");
+    
+  var cardhoje = document.getElementById(hoje.toString());
+    cardhoje.classList.add("show");
+    cardhoje.classList.add("active");
+
     function CarregarTrailer() {
-      var trailer01 = "https://www.youtube.com/watch?v=7eff2G_b5qg&ab_channel=TrailersBR";
-      var trailer02 = "https://www.youtube.com/watch?v=wmhk4cjkKiE&t=4s&ab_channel=Ingresso.com";
+      var trailer01 = "https://youtu.be/yfTKCw-Y3qI";
+      var trailer02 = "https://youtu.be/wmhk4cjkKiE";
       var trailer03 = 25;
       
       var a = document.querySelectorAll(".trailer01");
+      var b = document.querySelectorAll(".trailer02");
+
       for (let index = 0; index<a.length; index++){
           a[index].href=trailer01;
       }
-      var b = document.querySelectorAll(".trailer02");
       for (let index = 0; index<b.length; index++){
           b[index].href=trailer02;
       }
-      // var c = document.querySelector("#trailer03");
-      // c.href=trailer03;       
+          
     }
     
       window.onload = function() {
