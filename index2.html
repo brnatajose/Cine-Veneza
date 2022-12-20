@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Cine Veneza - A mais de 35 anos levando cultura a Porto Velho</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="A mais de 35 anos levando cultura a Porto Velho, Endereço: R. Joaquim Nabuco, 1976 - Centro, Porto Velho - RO, 76804-340">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+
+    <style>
+      .fixed-tabs-Whats {
+position: fixed;
+right: 0px;
+bottom: 60px;
+z-index: 100;
+}
+
+.modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+  }
+
+
+
+.modal-body {
+  position:relative;
+  padding:0px;
+}
+.close {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
+}
+nav a{
+  color: #19c304 !important;
+}
+footer{
+ margin-right: 0 !important;
+ margin-left: 0 !important;
+ text-align: center;
+}
+
+.aba-whatsphone {
+background: #1EBEA5;
+height: 60px;
+width: 70px;
+border-radius: 30px 0 0 30px;
+transition: 0.7s ease;
+}
+.aba-whatsphone:hover {
+width: 280px;
+transition: 0.7s ease;
+}
+.aba-whatsphone-icone {
+background-image: url(data:image/png;base64,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);
+  background-repeat: no-repeat;
+  width: 280px;
+  background-size: 44px;
+  background-position: 16px 7px;
+  padding: 7px;
+}
+.aba-whatsphone-icone a {
+color: #ffffff;
+font-size: 14px;
+line-height: 20px;
+margin-left: 70px;
+text-decoration: none;
+height: 60px;
+font-family: sans-serif;
+}
+.nav-item{
+  font-size: 1.2rem;
+}
+.aba-whatsphone-icone a strong {
+display: block;
+font-size: 21px;
+margin-left: 70px;
+}
+      body {
+        background-image: url(https://i.postimg.cc/tCS8sFxK/2.webp);
+      }
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Montserrat', sans-serif;
+      }
+      .w3-row-padding img {
+        margin-bottom: 12px;
+      }
+      /* Set the width of the sidebar to 120px */
+      .w3-sidebar {
+        width: 120px;
+        background: #222;
+      }
+      /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+      #main {
+        margin-left: 120px;
+      }
+      /* Remove margins from "page content" on small screens */
+      @media only screen and (max-width: 600px) {
+        #main {
+        margin-left: 0;
+      }
+        header{
+        margin-top: 3rem;
+        }
+
+        body{
+        margin-left: auto;
+  margin-right: auto;
+        }
+        .nav-item {
+  font-size: 0.9rem;
+}
+        .embreve {
+        display: grid !important;
+          
+        justify-content: center;
+    align-items: center;
+      }
+        .exibicao {
+        display: grid !important;
+          
+        justify-content: center;
+    align-items: center;
+      }
+      .card{
+        width: 100% !important;
+        margin-top: 1rem
+      }
+      .card-text{
+        display: none !important;
+      }
+      .tab-content > .active{
+        display: grid !important;
+      }
+
+      }
+      .embreve {
+        display: flex;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        gap: 1vw;
+      }
+      .exibicao{
+        display: flex;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        gap: 1vw;
+      }
+      
+      .card{
+        width: 40%;
+        margin-top: 1rem
+      }
+      .estreia {
+        font-size: 1rem;
+        width: 100%;
+        min-height: 1rem;
+      }
+      .cartao {
+        max-width: 270px;
+        max-height: 600px;
+        background: #fff;
+        border: 2px solid #fff;
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+      }
+      .cartao img {
+        max-width: 100%;
+        max-height: 100%;
+        transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+      }
+      .cartao:hover {
+        transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+        transform: scale(0.97);
+      }
+      .cartao:hover img {
+        transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+        transform: scale(1.6);
+      }
+      .imagemcard {
+        max-height: 150px;
+      }
+      .tab-content > .active {
+        display: flex;
+        gap: 1rem;
+      }
+    </style>
+      
+      
+  <body class="w3-black">
+      <!-- Icon Bar (Sidebar - hidden on small screens) -->
+      <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" aria-label="menu">
+        <!-- Avatar image in top left corner -->
+        <img
+          src="https://i.ibb.co/L8zzcg0/logo.png"
+          style="width: 100%; margin-bottom: 1vh; margin-top: 1vh"
+          alt="Logo Cine Veneza"
+        />
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+          <i class="fa fa-home w3-xxlarge"></i>
+          <p>Inicio</p>
+        </a>
+        <a
+          href="#about"
+          class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+        >
+          <i class="fa fa-eye w3-xxlarge"></i>
+          <p>EM CARTAZ</p>
+        </a>
+        <a
+          href="#programacao"
+          class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+        >
+          <i class="fa fa-calendar w3-xxlarge"></i>
+          <p>HORÁRIOS</p>
+        </a>
+        <a
+          href="#contact"
+          class="w3-bar-item w3-button w3-padding-large w3-hover-black"
+        >
+          <i class="fa fa-envelope w3-xxlarge"></i>
+          <p>CONTATO</p>
+        </a>
+      </nav>
+
+      <!-- Navbar on small screens (Hidden on medium and large screens) -->
+      <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+        <div
+          class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small"
+        >
+          <a
+            href="#"
+            class="w3-bar-item w3-button"
+            style="width: 25% !important"
+            >INÍCIO</a
+          >
+          <a
+            href="#about"
+            class="w3-bar-item w3-button"
+            style="width: 25% !important"
+            >EM CARTAZ</a
+          >
+          <a
+            href="#programacao"
+            class="w3-bar-item w3-button"
+            style="width: 25% !important"
+            >HORÁRIOS</a
+          >
+          <a
+            href="#contact"
+            class="w3-bar-item w3-button"
+            style="width: 25% !important"
+            >CONTATO</a
+          >
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <div class="fixed-tabs-Whats">
+<div class="aba-whatsphone">
+  <div class="aba-whatsphone-icone">
+    <a target="_blank" href="https://api.whatsapp.com/send?phone=556932218296">Entre em <br><strong>Contato </strong></a>          
+  </div>
+</div>          
+</div>
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="1"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="2"
+              ></li>
+            </ol>
+            <div class="carousel-inner">
+              <!-- <div class="carousel-item active">
+                <img
+                  class="d-block w-100"
+                  src="https://central.lasercinemas.com.br/Banner/7aea0c56-e1d1-4b53-8af1-9b3394b8136218c70069-ec49-4f33-b315-d8007ad996e1.jpg"
+                  alt="Primeiro Slide"
+                />
+              </div> -->
+              <div class="carousel-item active">
+                <img
+                  class="d-block w-100"
+                  src="https://central.lasercinemas.com.br/Banner/7aea0c56-e1d1-4b53-8af1-9b3394b8136218c70069-ec49-4f33-b315-d8007ad996e1.jpg"
+                  alt="Segundo Slide"
+                />
+              </div>
+              <!-- <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="https://i.ibb.co/zH2jHZZ/Design-sem-nome.webp"
+                  alt="Terceiro Slide"
+                />
+              </div>-->
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Proximo</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- About Section -->
+        <div
+          class="w3-content w3-justify w3-text-grey w3-padding-64"
+          id="about"
+        >
+          <h3 class="w3-padding-16 w3-text-light-grey">EM EXIBIÇÃO</h3>
+          <!-- Cards -->
+
+          <div class="exibicao">
+        
+  <div class="cartao">
+
+  <img
+  src="https://central.lasercinemas.com.br/Capa/196.jpg"
+  alt="Avatar"
+/>
+  
+</div> 
+ 
+                      
+            
+          </div>
+<!--
+          <h3 class="w3-padding-16 w3-text-light-grey">EM BREVE</h3>
+           <div class="embreve">
+           
+     
+           
+          </div> -->
+                    <!-- Final dos cards -->
+
+            <!-- Programação -->
+            <h3 class="w3-padding-24 w3-text-light-grey" id="programacao">
+              Programação
+            </h3>
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a
+                class="nav-item nav-link"
+                id="nav-13"
+                data-toggle="tab"
+                href="#13"
+                role="tab"
+                aria-controls="nav-13"
+                aria-selected="false"
+                >13/12</a
+              >
+                <a
+                class="nav-item nav-link"
+                id="nav-14"
+                data-toggle="tab"
+                href="#14"
+                role="tab"
+                aria-controls="nav-14"
+                aria-selected="false"
+                >14/12</a
+              >
+                
+                <a
+                  class="nav-item nav-link"
+                  id="nav-15"
+                  data-toggle="tab"
+                  href="#15"
+                  role="tab"
+                  aria-controls="nav-15"
+                  aria-selected="false"
+                  >15/12</a
+                >
+                <a
+                class="nav-item nav-link"
+                id="nav-16"
+                data-toggle="tab"
+                href="#16"
+                role="tab"
+                aria-controls="nav-16"
+                aria-selected="false"
+                >16/12</a
+              >
+              <a
+                class="nav-item nav-link"
+                id="nav-17"
+                data-toggle="tab"
+                href="#17"
+                role="tab"
+                aria-controls="nav-17"
+                aria-selected="false"
+                >17/12</a
+              >
+              <a
+              class="nav-item nav-link"
+              id="nav-18"
+              data-toggle="tab"
+              href="#18"
+              role="tab"
+              aria-controls="nav-18"
+              aria-selected="false"
+              >18/12</a
+            >
+            <a
+            class="nav-item nav-link"
+            id="nav-19"
+            data-toggle="tab"
+            href="#19"
+            role="tab"
+            aria-controls="nav-19"
+            aria-selected="false"
+            >19/12</a
+          >
+          <a
+            class="nav-item nav-link"
+            id="nav-20"
+            data-toggle="tab"
+            href="#20"
+            role="tab"
+            aria-controls="nav-20"
+            aria-selected="false"
+            >20/12</a
+          >
+          <a
+            class="nav-item nav-link"
+            id="nav-21"
+            data-toggle="tab"
+            href="#21"
+            role="tab"
+            aria-controls="nav-21"
+            aria-selected="false"
+            >21/12</a
+          >
+             
+                
+                
+              </div>
+            </nav>
+<div class="tab-content" id="nav-tabContent">
+
+  <div class="tab-pane fade" id="13" role="tabpanel" aria-labelledby="nav-13">
+
+    <div class="card card03 " style="margin-top: 1rem"></div>
+
+
+  </div>
+  <div class="tab-pane fade" id="14" role="tabpanel" aria-labelledby="nav-14">
+
+    <div class="card card01 " style="margin-top: 1rem"></div>
+
+
+  </div>
+  <div class="tab-pane fade" id="15" role="tabpanel"aria-labelledby="nav-15">  
+
+    
+    <div class="card card01" style="margin-top: 1rem"></div>
+
+  </div>
+  <div class="tab-pane fade" id="16" role="tabpanel" aria-labelledby="nav-16">  
+
+    
+    <div class="card card01" style="margin-top: 1rem"></div>
+
+  </div>
+  <div class="tab-pane fade" id="17" role="tabpanel" aria-labelledby="nav-17">
+
+   
+    <div class="card card02" style="margin-top: 1rem"></div>
+
+  </div>
+  <div class="tab-pane fade" id="18" role="tabpanel" aria-labelledby="nav-18">
+
+    
+
+    <div class="card card02" style="margin-top: 1rem"></div>
+
+  </div>
+  
+        <div class="tab-pane fade" id="19" role="tabpanel" aria-labelledby="nav-19">
+
+    
+    <div class="card card01" style="margin-top: 1rem"></div>
+
+  </div>
+  <div class="tab-pane fade" id="20" role="tabpanel" aria-labelledby="nav-20">
+
+    
+    <div class="card card01" style="margin-top: 1rem"></div>
+
+  </div>
+  <div class="tab-pane fade" id="21" role="tabpanel" aria-labelledby="nav-21">
+
+    
+    <div class="card card01" style="margin-top: 1rem"></div>
+
+  </div>
+</div>
+
+
+            <!-- Final da programação -->
+            <!-- Grid de Preços --><h3 class="w3-padding-16 w3-text-light-grey">Preços</h3>
+          <div class="w3-row-padding" style="margin: 0 -16px">
+            <div class="w3-half w3-margin-bottom">
+              <ul class="w3-ul w3-white w3-center">
+                <li class="w3-dark-grey w3-xlarge w3-padding-32">Inteira</li>
+                <li class="w3-padding-16">
+                  <h2>R$ 20,00 - 2D</h2>
+                   <span class="w3-opacity"
+                    > <br/><br/>
+
+                  </span>
+                  <h2>R$ 30,00 - 3D</h2>
+                   <span class="w3-opacity"
+                    > <br/><br/>
+
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="w3-half">
+              <ul class="w3-ul w3-white w3-center">
+                <li class="w3-green w3-xlarge w3-padding-32">Meia</li>
+                <li class="w3-padding-16">
+                  <h2>R$ 10,00  - 2D</h2>
+<span class="w3-opacity">**PROMOÇÃO: TODOS PAGAM MEIA DE TERÇA A SEXTA, E NAS MATINÊS DE SABÁDO E DOMINGO<br/>
+</span>
+                </li>
+                  <h2>R$ 15,00 - 3D</h2>
+<span class="w3-opacity">**PROMOÇÃO: TODOS PAGAM MEIA DE SEGUNDA A SEXTA<br/>
+</span><br/>
+              </ul>
+            </div>
+            <div class="w3-col">
+              <ul class="w3-ul w3-white w3-center">
+                <li class="w3-orange w3-xlarge w3-padding-32">SEGUNDA PROMOCIONAL</li>
+                <li class="w3-padding-16">
+                  <h2>R$ 8,00</h2>
+<span class="w3-opacity">**SOMENTE AS SEGUNDAS-FEIRAS PARA EXIBIÇÃO EM 2D
+</span>
+                </li>
+              </ul>
+            </div>
+            
+                
+            
+            <!-- Final grid de preços -->
+          </div>
+        </div>
+        <!-- Sessão Contato -->
+        <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+          <h2 class="w3-text-light-grey">Entre em contato</h2>
+          <hr style="width: 200px" class="w3-opacity" />
+
+          <div class="w3-section">
+            <p>
+              <i
+                class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"
+              ></i>
+              R. JOAQUIM NABUCO, 1976 - CENTRO, PORTO VELHO - RO, 76804-340
+            </p>
+            <p>
+              <i
+                class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"
+              ></i>
+              Telefone: (69) 3221-8296 (Whatsapp)
+            </p>
+            <p>
+              <i
+                class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"
+              >
+              </i>
+              Email: cineveneza@uol.com.br
+            </p>
+          </div>
+          <br />
+          <!-- Final Sessão contato -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-text-grey">
+          <img
+            src="https://i.ibb.co/L8zzcg0/logo.png"
+            style="max-width: 100px; margin-bottom: 1vh; margin-top: 1vh"
+            alt="Logo Cine Veneza"
+          /><br />
+          <a href="https://www.facebook.com/cineveneza" target="_blank">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i
+          ></a>
+          <p class="">
+            Copyright © 2022 Cine Veneza</p>
+          <!-- End footer -->
+        </footer>
+        <a type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/B4U8CaZoeG4" data-target="#myModal">
+          Assistir Trailer
+        </a>
+        
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      
+      <div class="modal-body">
+
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>        
+        <!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+</div>
+
+        <!-- END PAGE CONTENT -->
+      </div>
+    </div>
+    
+  </body>
+  
+  <script>
+    const dataAtual = new Date();
+	const hoje = dataAtual.getDate();
+	
+    var tabidhoje = "nav"+"-"+hoje;
+    
+	var tab = document.getElementById(tabidhoje);
+  	tab.classList.add("active");
+    
+    var cardhoje = document.getElementById(hoje.toString());
+    cardhoje.classList.add("show");
+    cardhoje.classList.add("active");
+    
+    </script>
+  
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+  <script type="text/javascript">
+      var card01 = '<img class="card-img-top" src="https://istoe.com.br/wp-content/uploads/2022/12/36-1.jpg" /> <div class="card-body"> <h5 class="card-title"><b>Avatar: O Caminho da Água </b></h5> <h6 class="card-subtitle mb-2 text-muted"> 2022 ‧ Ficção científica/Ação ‧ 3h 10m <span class="badge badge-warning">12</span> </h6> <p class="card-text"> Após formar uma família, Jake Sully e Ney tiri fazem de tudo para ficarem juntos. No entanto, eles devem sair de casa e explorar as regiões de Pandora quando uma antiga ameaça ressurge, e Jake deve travar uma guerra difícil contra os humanos</div> <ul class="list-group list-group-flush"> <li class="list-group-item"> <h3> <span class="badge badge-primary">19:00 - 2D</span> <span class="badge badge-primary">22:15 - 3D</span> </h3>  </li> </ul> <div class="card-body"> <a href="#" target="_blank" class="card-link trailer02" >Assistir trailer</a > </div> </div>';
+      var card02 = '<img class="card-img-top" src="https://istoe.com.br/wp-content/uploads/2022/12/36-1.jpg" /> <div class="card-body"> <h5 class="card-title"><b>Avatar: O Caminho da Água </b></h5> <h6 class="card-subtitle mb-2 text-muted"> 2022 ‧ Ficção científica/Ação ‧ 3h 10m <span class="badge badge-warning">12</span> </h6> <p class="card-text"> Após formar uma família, Jake Sully e Ney tiri fazem de tudo para ficarem juntos. No entanto, eles devem sair de casa e explorar as regiões de Pandora quando uma antiga ameaça ressurge, e Jake deve travar uma guerra difícil contra os humanos</div> <ul class="list-group list-group-flush"> <li class="list-group-item"> <h3> <span class="badge badge-primary">15:00 - 2D</span> <span class="badge badge-primary">19:00 - 2D</span> <span class="badge badge-primary">22:30 - 3D</span> </h3>  </li> </ul> <div class="card-body"> <a class="card-link trailer02 video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/B4U8CaZoeG4" data-target="#myModal">Assistir trailer</a > </div> </div>';
+      var card03 = '<img class="card-img-top" src="https://igormiranda.com.br/wp-content/uploads/2022/10/pantera-negra-wakanda-para-sempre-poster.jpg" /> <div class="card-body"> <h5 class="card-title"><b>Pantera Negra: Wakanda Para Sempre </b></h5> <h6 class="card-subtitle mb-2 text-muted"> 2022 ‧ Ação/Aventura ‧ 2h 41m <span class="badge badge-warning">14</span> </h6> <p class="card-text"> Em Wakanda, a Rainha Ramonda, Shuri, MBaku, Okoye e as Dora Milaje lutam para proteger a sua nação de potências mundiais, na sequência da morte do rei TChalla.      </div> <ul class="list-group list-group-flush"> <li class="list-group-item"> <h3> <span class="badge badge-primary">19:00</span> </h3> </li> </ul> <div class="card-body"> <a href="#" target="_blank" class="card-link trailer01" >Assistir trailer</a > </div> </div>';
+
+    function CarregarTrailer() {
+         
+      $(".card01").append(card01) 
+      $(".card02").append(card02)
+      $(".card03").append(card03)
+      
+
+      var trailer01 = "https://youtu.be/FR9iLjOubWc";
+      var trailer02 = "https://youtu.be/B4U8CaZoeG4";
+      
+      var a = document.querySelectorAll(".trailer01");
+      var b = document.querySelectorAll(".trailer02");
+      
+      for (let index = 0; index<a.length; index++){
+          a[index].href=trailer01;
+      }
+      for (let index = 0; index<b.length; index++){
+          b[index].href=trailer02;
+      }
+      for (let index = 0; index<c.length; index++){
+          c[index].href=trailer03;
+      }   
+          
+    }
+    $(document).ready(function() {
+
+// Gets the video src from the data-src on each button
+
+var $videoSrc;  
+$('.video-btn').click(function() {
+    $videoSrc = $(this).data( "src" );
+});
+console.log($videoSrc);
+
+  
+  
+// when the modal is opened autoplay it  
+$('#myModal').on('shown.bs.modal', function (e) {
+    
+// set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+$("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+
+})
+  
+
+
+// stop playing the youtube video when I close the modal
+$('#myModal').on('hide.bs.modal', function (e) {
+    // a poor man's stop video
+    $("#video").attr('src',$videoSrc); 
+}) 
+    
+    
+
+
+  
+  
+// document ready  
+});
+
+
+
+      window.onload = function() {
+        CarregarTrailer()
+      }
+    
+    </script>
+</html>
